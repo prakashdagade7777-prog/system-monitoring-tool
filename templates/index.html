@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monitoring Dashboard</title>
+
+    <!-- Auto Refresh -->
+    <meta http-equiv="refresh" content="5">
+
+    <style>
+        body { font-family: Arial; text-align: center; }
+
+        .box {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 200px;
+            color: white;
+        }
+
+        .normal { background-color: green; }
+        .warning { background-color: red; }
+    </style>
+</head>
+<body>
+
+    <h1>Smart Monitoring Dashboard</h1>
+
+    <div class="box {{ 'warning' if data.cpu > 80 else 'normal' }}">
+        CPU: {{ data.cpu }}%
+    </div>
+
+    <div class="box {{ 'warning' if data.memory > 80 else 'normal' }}">
+        Memory: {{ data.memory }}%
+    </div>
+
+    <div class="box {{ 'warning' if data.disk > 80 else 'normal' }}">
+        Disk: {{ data.disk }}%
+    </div>
+
+</body>
+</html>
